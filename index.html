@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Te Adoro 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: white;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: pink;
+      text-shadow: 0 0 15px red, 0 0 30px hotpink;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Corazón */
+    .heart {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,0,0,0.5), transparent),
+                  radial-gradient(circle at 70% 30%, rgba(0,0,255,0.5), transparent);
+      transform: rotate(-45deg);
+      top: 50%;
+      left: 50%;
+      margin: -75px 0 0 -75px;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -75px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 75px;
+      top: 0;
+    }
+
+    /* Estrellas */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+  <h1>💐 Felices 3 meses mi amor 💐<br>Te adoro con todo mi corazón 💖</h1>
+
+  <script>
+    // Generar estrellitas aleatorias
+    for (let i = 0; i < 80; i++) {
+      let star = document.createElement("div");
+      star.className = "star";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.animationDuration = (1 + Math.random() * 2) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
